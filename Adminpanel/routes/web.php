@@ -7,6 +7,7 @@ use App\Http\Controllers\SliderController;
 Route::get('/',[AdminController::class,'index']);
 
 Route::group(['prefix'=>'sliders'],function (){
+    Route::get('/',[SliderController::class,'index'])->name('sliders.index');
     Route::get('/create',[SliderController::class,'create'])->name('sliders.create');
     Route::post('/',[SliderController::class,'store'])->name('sliders.store');
     Route::get('/edit/{id}',[SliderController::class,'edit'])->name('sliders.edit');
