@@ -9,7 +9,8 @@ class SliderController extends Controller
 {
     public function index()
     {
-        return view('sliders.index');
+        $sliders = Slider::all();
+        return view('sliders.index',compact('sliders'));
     }
     public function create()
     {
@@ -35,5 +36,37 @@ class SliderController extends Controller
         return redirect()->route('sliders.index')->with('success','اسلایدر با موفقیت ایجاد شد');
 
     }
+
+    public function edit(Slider $slider)
+    {
+        return view('sliders.edit',compact('slider'));
+    }
+    public function update(Request $request, Slider $slider)
+    {
+
+        $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'link_title' => 'required|string',
+            'link_address' => 'required|string'
+        ]);
+        $slider->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'link_title' => $request->link_title,
+            'link_address' => $request->link_address
+        ]);
+
+        return redirect()->route('sliders.index')->with('success','اسلایدر با موفقیت ویرایش شد');
+
+    }
+    public function destroy(Slider $slider){
+
+        $slider->delete();
+
+        return redirect()->route('sliders.index')->with('success','اسلایدر با موفقیت حذف شد');
+
+    }
+
 
 }
