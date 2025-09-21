@@ -65,7 +65,7 @@
                         <a class="dropdown-item" href="{{route('feature.index')}}">بخش ویژگی ها</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">بخش درباره ما</a>
+                        <a class="dropdown-item" href="{{route('about.index')}}">بخش درباره ما</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="#">بخش فوتر</a>

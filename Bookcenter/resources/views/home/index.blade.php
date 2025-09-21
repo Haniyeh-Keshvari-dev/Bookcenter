@@ -3,6 +3,7 @@
 
 @php
     $features=App\Models\Feature::all();
+    $item=App\Models\About::all();
 @endphp
 
 @section('link')
@@ -400,28 +401,27 @@
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
-                        <img src="{{ asset('images/about-img.png') }}" alt="" />
+                        <img src="{{ asset('images/about-img.png') }}" alt=""/>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="detail-box">
-                        <div class="heading_container">
-                            <h2>
-                                لورم ایپسوم متن
-                            </h2>
+
+                @foreach($item as $items)
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                <h2>
+                                    {{$items->title}}
+                                </h2>
+                            </div>
+                            <p>
+                                {{$items->body}}
+                            </p>
+                            <a href="{{$items->link}}">
+                                مشاهده بیشتر
+                            </a>
                         </div>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                            تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                            شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-                            شناخت
-                        </p>
-                        <a href="">
-                            مشاهده بیشتر
-                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -440,16 +440,17 @@
                     <div class="form_container">
                         <form action="">
                             <div>
-                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی" />
+                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی"/>
                             </div>
                             <div>
-                                <input type="email" class="form-control" placeholder="ایمیل" />
+                                <input type="email" class="form-control" placeholder="ایمیل"/>
                             </div>
                             <div>
-                                <input type="text" class="form-control" placeholder="موضوع پیام" />
+                                <input type="text" class="form-control" placeholder="موضوع پیام"/>
                             </div>
                             <div>
-                                <textarea rows="10" style="height: 100px" class="form-control" placeholder="متن پیام"></textarea>
+                                <textarea rows="10" style="height: 100px" class="form-control"
+                                          placeholder="متن پیام"></textarea>
                             </div>
                             <div class="btn_box">
                                 <button>

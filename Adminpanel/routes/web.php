@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\AboutController;
+
 
 Route::get('/',[AdminController::class,'index'])->name('dashboard');
 
@@ -24,5 +26,12 @@ Route::group(['prefix'=>'features'],function (){
     Route::get('/{feature}/edit',[FeatureController::class,'edit'])->name('feature.edit');
     Route::put('/{feature}',[FeatureController::class,'update'])->name('feature.update');
     Route::delete('/{feature}', [FeatureController::class, 'destroy'])->name('feature.destroy');
+
+});
+
+Route::group(['prefix'=>'about'],function (){
+    Route::get('/',[AboutController::class,'index'])->name('about.index');
+    Route::get('/{about}/edit',[AboutController::class,'edit'])->name('about.edit');
+    Route::put('/{about}',[AboutController::class,'update'])->name('about.update');
 
 });
