@@ -1,6 +1,18 @@
 @extends('layout.master')
+@section('title', 'Home Page')
 
-@section('title','Home')
+@php
+    $features=App\Models\Feature::all();
+@endphp
+
+@section('link')
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+            crossorigin=""></script>
+@endsection
 
 @section('script')
     <script>
@@ -13,209 +25,23 @@
     </script>
 @endsection
 
-@section('link')
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-            crossorigin=""></script>
-@endsection
-
 @section('content')
-
-    <div>
-        <div class="hero_area">
-            <div class="bg-box">
-                <img src="{{asset('images/hero-bg.jpg')}}" alt="">
-            </div>
-            <!-- header section strats -->
-            <header class="header_section">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg custom_nav-container">
-                        <a class="navbar-brand" href="index.html">
-                            <span>
-                                Bookcenter.com
-                            </span>
-                        </a>
-
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">صفحه اصلی</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="menu.html">کتاب ها</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">درباره ما</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">تماس باما</a>
-                                </li>
-                            </ul>
-                            <div class="user_option">
-                                <a class="cart_link position-relative" href="cart.html">
-                                    <i class="bi bi-cart-fill text-white fs-5"></i>
-                                    <span class="position-absolute top-0 translate-middle badge rounded-pill">
-                                        3
-                                    </span>
-                                </a>
-                                <a href="login.html" class="btn-auth">
-                                    ورود
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </header>
-            <!-- end header section -->
-            <!-- slider section -->
-            <section class="slider_section">
-                <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7 col-lg-6">
-                                        <div class="detail-box">
-                                            <h2 class="mb-3 fw-bold">
-                                                لورم ایپسوم متن ساختگی
-                                            </h2>
-                                            <p>
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                                از
-                                                طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                                سطرآنچنان که
-                                                لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
-                                                بهبود
-                                                ابزارهای کاربردی می باشد.
-                                            </p>
-                                            <div class="btn-box">
-                                                <a href="" class="btn1">
-                                                    اضافه به سبد خرید
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7 col-lg-6">
-                                        <div class="detail-box">
-                                            <h2 class="mb-3 fw-bold">
-                                                لورم ایپسوم متن ساختگی
-                                            </h2>
-                                            <p>
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                                از
-                                                طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                                سطرآنچنان که
-                                                لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
-                                                بهبود
-                                                ابزارهای کاربردی می باشد.
-                                            </p>
-                                            <div class="btn-box">
-                                                <a href="" class="btn1">
-                                                   اضافه به سبد خرید
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-7 col-lg-6">
-                                        <div class="detail-box">
-                                            <h2 class="mb-3 fw-bold">
-                                                لورم ایپسوم متن ساختگی
-                                            </h2>
-                                            <p>
-                                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                                از
-                                                طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                                سطرآنچنان که
-                                                لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
-                                                بهبود
-                                                ابزارهای کاربردی می باشد.
-                                            </p>
-                                            <div class="btn-box">
-                                                <a href="" class="btn1">
-                                                    اضافه به سبد خرید
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <ol class="carousel-indicators">
-                            <li data-bs-target="#customCarousel1" data-bs-slide-to="0" class="active"></li>
-                            <li data-bs-target="#customCarousel1" data-bs-slide-to="1"></li>
-                            <li data-bs-target="#customCarousel1" data-bs-slide-to="2"></li>
-                        </ol>
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- end slider section -->
-        </div>
-    </div>
-
     <section class="card-area layout_padding">
         <div class="container">
             <div class="row gy-5">
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-telephone-fill fs-2 text-white card-icon"></i>
+                @foreach($features as $feature)
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <div class="card-icon-wrapper">
+                                    <i class="bi  {{$feature->icon}} fs-2 text-white card-icon"></i>
+                                </div>
+                                <p class="card-text fw-bold">{{$feature->title}}</p>
+                                <p class="card-text">{{$feature->body}}</p>
                             </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-clock-fill fs-2 text-white card-icon"></i>
-                            </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-geo-alt-fill fs-2 text-white card-icon"></i>
-                            </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -225,14 +51,14 @@
         <div class="container" x-data="{ tab: 1 }">
             <div class="heading_container heading_center">
                 <h2>
-                   لیست کتاب ها
+                    منو محصولات
                 </h2>
             </div>
 
             <ul class="filters_menu">
-                <li :class="tab === 1 ? 'active' : ''" @click="tab = 1">رمان</li>
-                <li :class="tab === 2 ? 'active' : ''" @click="tab = 2">روان شناسی</li>
-                <li :class="tab === 3 ? 'active' : ''" @click="tab = 3">علمی</li>
+                <li :class="tab === 1 ? 'active' : ''" @click="tab = 1">برگر</li>
+                <li :class="tab === 2 ? 'active' : ''" @click="tab = 2">پیتزا</li>
+                <li :class="tab === 3 ? 'active' : ''" @click="tab = 3">پیش غذا و سالاد</li>
             </ul>
 
             <div class="filters-content">
@@ -246,7 +72,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           کافکا در کرانه
+                                            برگر مخصوص
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -283,7 +109,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           ملت عشق
+                                            چیز برگر
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -316,7 +142,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           درمان شوپنهاور
+                                            رویال برگر
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -354,7 +180,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           دروغگویی روی مبل
+                                            پیتزا مخصوص 1 نفره
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -387,7 +213,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           وقتی نیچه گریست
+                                            پیتزا مخصوص خانواده
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -424,7 +250,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           کتابخانه گمشده
+                                            پیتزا سرآشپز
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -462,7 +288,7 @@
                                     </div>
                                     <div class="detail-box">
                                         <h5>
-                                           کتابخانه نیمه شب
+                                            سالاد فصل
                                         </h5>
                                         <p>
                                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
@@ -574,7 +400,7 @@
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
-                        <img src="{{asset('images/about-img.png')}}" alt=""/>
+                        <img src="{{ asset('images/about-img.png') }}" alt="" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -614,17 +440,16 @@
                     <div class="form_container">
                         <form action="">
                             <div>
-                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی"/>
+                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی" />
                             </div>
                             <div>
-                                <input type="email" class="form-control" placeholder="ایمیل"/>
+                                <input type="email" class="form-control" placeholder="ایمیل" />
                             </div>
                             <div>
-                                <input type="text" class="form-control" placeholder="موضوع پیام"/>
+                                <input type="text" class="form-control" placeholder="موضوع پیام" />
                             </div>
                             <div>
-                                <textarea rows="10" style="height: 100px" class="form-control"
-                                          placeholder="متن پیام"></textarea>
+                                <textarea rows="10" style="height: 100px" class="form-control" placeholder="متن پیام"></textarea>
                             </div>
                             <div class="btn_box">
                                 <button>
@@ -643,5 +468,4 @@
         </div>
     </section>
     <!-- end contact section -->
-
 @endsection
