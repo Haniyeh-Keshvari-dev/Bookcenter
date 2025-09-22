@@ -2,6 +2,10 @@
 
 @section('title','About')
 
+@php
+    $item=App\Models\About::all();
+@endphp
+
 @section('content')
 
     <section class="about_section layout_padding">
@@ -9,28 +13,26 @@
             <div class="row">
                 <div class="col-md-6 ">
                     <div class="img-box">
-                        <img src="{{ asset('/images/about-img.png') }}" alt="about_image" />
+                        <img src="{{ asset('/images/about-img.png') }}" alt="about_image"/>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="detail-box">
-                        <div class="heading_container">
-                            <h2>
-                                لورم ایپسوم متن
-                            </h2>
+                @foreach($item as $items)
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="heading_container">
+                                <h2>
+                                    {{$items->title}}
+                                </h2>
+                            </div>
+                            <p>
+                                {{$items->body}}
+                            </p>
+{{--                            <a href="{{$items->link}}">--}}
+{{--                                مشاهده بیشتر--}}
+{{--                            </a>--}}
                         </div>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                            تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                            شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-                            شناخت
-                        </p>
-                        <a href="">
-                            مشاهده بیشتر
-                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
