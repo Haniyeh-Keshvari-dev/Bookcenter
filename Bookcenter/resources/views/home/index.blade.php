@@ -1,10 +1,6 @@
 @extends('layout.master')
 @section('title', 'Home Page')
 
-@php
-    $features=App\Models\Feature::all();
-@endphp
-
 @section('link')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
           integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -26,25 +22,8 @@
 @endsection
 
 @section('content')
-    <section class="card-area layout_padding">
-        <div class="container">
-            <div class="row gy-5">
-                @foreach($features as $feature)
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <div class="card-icon-wrapper">
-                                    <i class="bi  {{$feature->icon}} fs-2 text-white card-icon"></i>
-                                </div>
-                                <p class="card-text fw-bold">{{$feature->title}}</p>
-                                <p class="card-text">{{$feature->body}}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+
+    @include('home.feature')
 
     <!-- food section -->
     <section class="food_section layout_padding-bottom">
@@ -393,50 +372,7 @@
     </section>
     <!-- end food section -->
 
-    <!-- about section -->
     @include('home.about')
-    <!-- end about section -->
 
-    <!-- contact section -->
-    <section class="book_section layout_padding">
-        <div class="container">
-            <div class="heading_container">
-                <h2>
-                    تماس با ما
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form_container">
-                        <form action="">
-                            <div>
-                                <input type="text" class="form-control" placeholder="نام و نام خانوادگی"/>
-                            </div>
-                            <div>
-                                <input type="email" class="form-control" placeholder="ایمیل"/>
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" placeholder="موضوع پیام"/>
-                            </div>
-                            <div>
-                                <textarea rows="10" style="height: 100px" class="form-control"
-                                          placeholder="متن پیام"></textarea>
-                            </div>
-                            <div class="btn_box">
-                                <button>
-                                    ارسال پیام
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="map_container ">
-                        <div id="map" style="height: 345px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end contact section -->
+    @include('home.contact')
 @endsection
