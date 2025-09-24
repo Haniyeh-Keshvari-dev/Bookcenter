@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>webprog.io || @yield('title')</title>
+    <title>Bookcenter.ir || @yield('title')</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css"
           integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
@@ -32,7 +32,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="index.html">
                             <span>
-                                webprog.io
+                               Bookcenter.ir
                             </span>
                     </a>
 

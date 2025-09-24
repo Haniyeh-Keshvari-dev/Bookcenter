@@ -7,6 +7,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\CategoryController;
 
 
 Route::get('/',[AdminController::class,'index'])->name('dashboard');
@@ -51,3 +52,15 @@ Route::group(['prefix'=>'footer'],function (){
     Route::put('/{footer}',[FooterController::class,'update'])->name('footer.update');
 
 });
+
+Route::group(['prefix'=>'categories'],function (){
+    Route::get('/',[CategoryController::class,'index'])->name('category.index');
+    Route::get('/create',[CategoryController::class,'create'])->name('category.create');
+    Route::post('/',[CategoryController::class,'store'])->name('category.store');
+    Route::get('/{category}/edit',[CategoryController::class,'edit'])->name('category.edit');
+    Route::put('/{category}',[CategoryController::class,'update'])->name('category.update');
+    Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+});
+
+
