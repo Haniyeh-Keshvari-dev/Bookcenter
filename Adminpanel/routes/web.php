@@ -6,6 +6,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FooterController;
 
 
 Route::get('/',[AdminController::class,'index'])->name('dashboard');
@@ -41,5 +42,12 @@ Route::group(['prefix'=>'contact'],function (){
     Route::get('/',[ContactUsController::class,'index'])->name('contact.index');
     Route::get('/{contact}',[ContactUsController::class,'show'])->name('contact.show');
     Route::delete('/{contact}',[ContactUsController::class,'destroy'])->name('contact.destroy');
+
+});
+
+Route::group(['prefix'=>'footer'],function (){
+    Route::get('/',[FooterController::class,'index'])->name('footer.index');
+    Route::get('/{footer}/edit',[FooterController::class,'edit'])->name('footer.edit');
+    Route::put('/{footer}',[FooterController::class,'update'])->name('footer.update');
 
 });
