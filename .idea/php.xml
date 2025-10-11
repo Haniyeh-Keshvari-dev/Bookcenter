@@ -239,6 +239,9 @@
       <path value="$PROJECT_DIR$/Bookcenter/vendor/guzzlehttp/uri-template" />
       <path value="$PROJECT_DIR$/Bookcenter/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/Bookcenter/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/Adminpanel/vendor/hekmatinasser/jalali" />
+      <path value="$PROJECT_DIR$/Adminpanel/vendor/hekmatinasser/notowo" />
+      <path value="$PROJECT_DIR$/Adminpanel/vendor/hekmatinasser/verta" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

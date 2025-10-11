@@ -236,6 +236,9 @@
       <excludeFolder url="file://$MODULE_DIR$/Bookcenter/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/Bookcenter/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/Bookcenter/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/Adminpanel/vendor/hekmatinasser/jalali" />
+      <excludeFolder url="file://$MODULE_DIR$/Adminpanel/vendor/hekmatinasser/notowo" />
+      <excludeFolder url="file://$MODULE_DIR$/Adminpanel/vendor/hekmatinasser/verta" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

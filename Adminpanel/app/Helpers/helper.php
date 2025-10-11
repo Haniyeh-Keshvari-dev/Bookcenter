@@ -1,5 +1,6 @@
 <?php
 
+use Hekmatinasser\Verta\Facades\Verta;
 
 function slugify($str, $delimiter = '-', $lowercase = true, $limit = null, $options = array())
 {
@@ -77,4 +78,9 @@ function slugify($str, $delimiter = '-', $lowercase = true, $limit = null, $opti
     $str = trim($str, $delimiter);
 
     return $lowercase ? mb_strtolower($str, 'UTF-8') : $str;
+}
+
+function getMiladiDate($date){
+
+    return Verta::parse($date)->formatGregorian('Y-n-j H:i:s');
 }
