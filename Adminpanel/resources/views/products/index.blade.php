@@ -1,33 +1,45 @@
 @extends('layout.master')
-@section('title', 'Category')
+@section('title', 'products')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h4 class="fw-bold">دسته بندی ها</h4>
-        <a href="{{ route('category.create') }}" class="btn btn-sm btn-outline-primary">ایجاد دسته بندی</a>
+        <h4 class="fw-bold">محصولات</h4>
+        <a href="{{ route('product.create') }}" class="btn btn-sm btn-outline-primary">ایجاد محصول</a>
     </div>
 
     <div class="table-responsive">
         <table class="table align-middle">
             <thead>
                 <tr>
+                    <th>تصویر</th>
                     <th>نام</th>
+                    <th>دسته بندی</th>
+                    <th>تعداد</th>
+                    <th>قیمت</th>
                     <th>وضعیت</th>
                     <th>عملیات</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($products as $product)
                     <tr>
-                        <td>{{ $category->name }}</td>
-                        <td>{{ $category->status ? 'فعال' : 'غیر فعال' }}</td>
-                        
+                        <td>
+                            <img src="{{asset('images/products/' . $product->primary_image)}}" width="80px" height="100px">
+                        </td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{$product->category->name}}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td>{{ $product->price }}</td>
+                        <td>{{ $product->status ? 'فعال' : 'غیر فعال' }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('category.edit', ['category' => $category->id]) }}"
-                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
+                                <a href="{{ route('category.edit', ['category' => $product->id]) }}"
+                                    class="btn btn-sm btn-outline-info me-2">نمایش</a>
 
-                                <form action="{{ route('category.destroy', ['category' => $category->id]) }}" method="POST">
+                                <a href="{{ route('category.edit', ['category' => $product->id]) }}"
+                                   class="btn btn-sm btn-outline-info me-2">ویرایش</a>
+
+                                <form action="{{ route('category.destroy', ['category' => $product->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">حذف</button>
@@ -38,5 +50,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div>
+            {{ $products->links('layout.paginate') }}
+        </div>
     </div>
 @endsection
