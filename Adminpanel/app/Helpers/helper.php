@@ -82,5 +82,5 @@ function slugify($str, $delimiter = '-', $lowercase = true, $limit = null, $opti
 
 function getMiladiDate($date){
 
-    return Verta::parse($date)->formatGregorian('Y-n-j H:i:s');
+    return Verta::parse($date)->formatGregorian('Y/m/d H:i:s');
 }

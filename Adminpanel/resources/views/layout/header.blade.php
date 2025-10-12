@@ -15,7 +15,7 @@
 
     @yield('link')
 
-    <title>webprog.io || @yield('title')</title>
+    <title>Bookcenter.ir || @yield('title')</title>
 </head>
 
 <body>
