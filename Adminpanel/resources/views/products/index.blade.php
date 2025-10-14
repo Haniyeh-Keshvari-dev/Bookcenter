@@ -33,10 +33,10 @@
                         <td>{{ $product->status ? 'فعال' : 'غیر فعال' }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('category.edit', ['category' => $product->id]) }}"
+                                <a href="{{ route('product.show', ['product' => $product->id]) }}"
                                     class="btn btn-sm btn-outline-info me-2">نمایش</a>
 
-                                <a href="{{ route('category.edit', ['category' => $product->id]) }}"
+                                <a href="{{ route('product.edit', ['product' => $product->id]) }}"
                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
 
                                 <form action="{{ route('category.destroy', ['category' => $product->id]) }}" method="POST">

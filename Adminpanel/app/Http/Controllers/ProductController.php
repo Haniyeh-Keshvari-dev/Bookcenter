@@ -101,9 +101,8 @@ class ProductController extends Controller
         }
 
         DB::commit();
-        dd('Done!');
 
-//        return redirect()->route('products.index')->with('success', 'محصول با موفقیت اضافه گردید');
+        return redirect()->route('product.index')->with('success', 'محصول با موفقیت اضافه گردید');
 
     }
 
