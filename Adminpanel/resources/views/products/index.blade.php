@@ -29,7 +29,7 @@
                         <td>{{ $product->name }}</td>
                         <td>{{$product->category->name}}</td>
                         <td>{{ $product->quantity }}</td>
-                        <td>{{ $product->price }}</td>
+                        <td>{{ number_format($product->price) }}</td>
                         <td>{{ $product->status ? 'فعال' : 'غیر فعال' }}</td>
                         <td>
                             <div class="d-flex">
@@ -39,7 +39,7 @@
                                 <a href="{{ route('product.edit', ['product' => $product->id]) }}"
                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
 
-                                <form action="{{ route('category.destroy', ['category' => $product->id]) }}" method="POST">
+                                <form action="{{ route('product.destroy', ['product' => $product->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">حذف</button>
